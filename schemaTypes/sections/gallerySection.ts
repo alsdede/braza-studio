@@ -40,6 +40,23 @@ export const gallerySection = defineType({
               title: 'Caption',
               type: 'string',
             }),
+            defineField({
+              name: 'linkTo',
+              title: 'Link To Page',
+              type: 'reference',
+              description: 'Optional page to navigate to when image is clicked',
+              to: [{type: 'page'}],
+              options: {
+                filter: ({document}) => {
+                  // Get the parent page's language from the document context
+                  const pageLanguage = document?.language || 'pt'
+                  return {
+                    filter: 'language == $language && isActive == true',
+                    params: {language: pageLanguage}
+                  }
+                }
+              }
+            }),
           ],
         },
       ],

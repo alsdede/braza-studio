@@ -14,6 +14,21 @@ export const page = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'language',
+      title: 'Language',
+      type: 'string',
+      description: 'Language/locale for this page',
+      options: {
+        list: [
+          {title: 'Português', value: 'pt'},
+          {title: 'English', value: 'en'},
+          {title: 'Español', value: 'es'},
+        ],
+      },
+      initialValue: 'pt',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -104,13 +119,15 @@ export const page = defineType({
     select: {
       title: 'title',
       subtitle: 'pageTitle',
+      language: 'language',
       media: 'seo.ogImage',
       isActive: 'isActive',
     },
     prepare(selection) {
-      const {title, subtitle, media, isActive} = selection
+      const {title, subtitle, language, media, isActive} = selection
+      const languageLabel = language === 'pt' ? '🇵🇹' : language === 'en' ? '🇬🇧' : language === 'es' ? '🇪🇸' : ''
       return {
-        title: title || 'Untitled Page',
+        title: `${languageLabel} ${title || 'Untitled Page'}`,
         subtitle: `${subtitle || 'No display title'} ${isActive ? '(Published)' : '(Draft)'}`,
         media,
       }
