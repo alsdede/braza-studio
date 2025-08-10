@@ -79,8 +79,69 @@ export const establishment = defineType({
       },
       validation: (Rule) => Rule.required(),
     }),
-
+  // SubCategory
+    defineField({
+      name: 'subCategory',
+      title: 'Sub-categoria',
+      type: 'string',
+      options: {
+        list: [
+          // Comida - Cozinhas Internacionais
+          {title: 'Italiana', value: 'italian'},
+          {title: 'Japonesa', value: 'japanese'},
+          {title: 'Chinesa', value: 'chinese'},
+          {title: 'Coreana', value: 'korean'},
+          {title: 'Tailandesa', value: 'thai'},
+          {title: 'Indiana', value: 'indian'},
+          {title: 'Mexicana', value: 'mexican'},
+          {title: 'Americana', value: 'american'},
+          {title: 'Asiática', value: 'asian'},
+          {title: 'Vietnamita', value: 'vietnamese'},
+          {title: 'Grega', value: 'greek'},
+          {title: 'Havaiana', value: 'hawaiian'},
+          {title: 'Taiwanesa', value: 'taiwanese'},
+          
+          // Comida - Tipos Específicos
+          {title: 'Pizza', value: 'pizza'},
+          {title: 'Sushi', value: 'sushi'},
+          {title: 'Hambúrgueres', value: 'burgers'},
+          {title: 'Fast Food', value: 'fast-food'},
+          {title: 'Churrasco', value: 'bbq'},
+          {title: 'Asas de Frango', value: 'wings'},
+          {title: 'Sanduíche', value: 'sandwich'},
+          {title: 'Poke', value: 'poke'},
+          {title: 'Marisco', value: 'seafood'},
+          {title: 'Comida de Rua', value: 'street-food'},
+          
+          // Comida - Dieta e Saúde
+          {title: 'Saudável', value: 'healthy'},
+          {title: 'Vegan', value: 'vegan'},
+          {title: 'Saladas', value: 'salad'},
+          {title: 'Halal', value: 'halal'},
+          {title: 'Kosher', value: 'kosher'},
+        ],
+      },
+      description: 'Categoria específica do estabelecimento (opcional)',
+      hidden: ({parent}) => !parent?.category, // Só mostra se uma categoria principal for selecionada
+    }),
     // Images
+     defineField({
+      name: 'logoImage',
+      title: 'Logo Image',
+      type: 'image',
+      description: 'logo image for the establishment',
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        defineField({
+          name: 'alt',
+          title: 'Alt Text',
+          type: 'string',
+          description: 'Alternative text for accessibility',
+        }),
+      ],
+    }),
     defineField({
       name: 'featuredImage',
       title: 'Featured Image',
