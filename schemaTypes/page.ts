@@ -72,6 +72,7 @@ export const page = defineType({
         {type: 'featuredEstablishmentsSection'},
         {type: 'latestNewsSection'},
         {type: 'contactSection'},
+               {type: 'travelServiceSection'},
       ],
     }),
     defineField({

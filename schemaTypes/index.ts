@@ -6,6 +6,7 @@ import {ctaSection} from './sections/ctaSection'
 import {featuredEstablishmentsSection} from './sections/featuredEstablishmentsSection'
 import {latestNewsSection} from './sections/latestNewsSection'
 import {contactSection} from './sections/contactSection'
+import {travelServiceSection} from './sections/travelServiceSection'
 import {establishment} from './establishment'
 import {news} from './newsSimple'
 import {ads} from './ads'
@@ -20,6 +21,7 @@ export const schemaTypes = [
   featuredEstablishmentsSection,
   latestNewsSection,
   contactSection,
+  travelServiceSection,
   
   // Content Types
   establishment,
