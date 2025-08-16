@@ -10,6 +10,7 @@ import {travelServiceSection} from './sections/travelServiceSection'
 import {establishment} from './establishment'
 import {news} from './newsSimple'
 import {ads} from './ads'
+import { roundedListSection } from './sections/roundedListSection'
 
 export const schemaTypes = [
   // Pages and Sections
@@ -22,6 +23,7 @@ export const schemaTypes = [
   latestNewsSection,
   contactSection,
   travelServiceSection,
+  roundedListSection,
   
   // Content Types
   establishment,

@@ -98,8 +98,8 @@ export const heroSection = defineType({
   ],
   preview: {
     select: {
-      title: 'sectionTitle',
-      subtitle: 'title',
+      title: 'title',
+      subtitle:"",
       media: 'backgroundImage',
       isActive: 'isActive',
     },
